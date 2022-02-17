@@ -23,10 +23,33 @@ the attribute 'status' to 'Inactive'
 
 '''
 
+class Weapon:
+    
+    def __init__(self, name, speed, r):
+        self.__name = name
+        self.__speed = speed
+        self.__range = r
+        self.__bullets = random.randint(10, 100000)
+        self.__status = 'Active'
 
+    def get_name(self):
+        return self.__name
 
+    def get_speed(self):
+        return self.__speed
 
+    def get_range(self):
+        return self.__range
 
+    def get_bullets(self):
+        return self.__bullets
 
+    def get_status(self):
+        return self.__status
 
-
+    def fire_bullet(self):
+        if self.__bullets > 0:
+            self.__bullets -= 1
+        else:
+            self.__bullets = 0
+            self.__status = 'Inactive'
